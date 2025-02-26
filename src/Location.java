@@ -7,8 +7,7 @@ private String name;
         return name;
     }
 
-    public String[] getLocations() {
-        return locations;
+    public String[] getLocations() {return locations;
     }
 
     private String[] locations;

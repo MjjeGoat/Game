@@ -26,7 +26,7 @@ public class Movement {
 
                 }
             }
-            System.out.println("Nachazite se v :" + cm.getCurrentpos());
+             System.out.println("Nachazite se v :" + cm.getCurrentpos());
         }
         return true;
     }
