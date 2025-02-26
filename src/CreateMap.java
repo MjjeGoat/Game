@@ -1,17 +1,33 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class CreateMap {
 
+    private HashMap<String, Location> map = new HashMap<>();
 
-    BufferedReader br;
-
-    {
+    public boolean loadMap() {
         try {
-            br = new BufferedReader(new FileReader("src/Mapa"));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            BufferedReader br = new BufferedReader(new FileReader("src/Mapa"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] lines = line.split(",");
+                Location location = new Location(lines[0], Arrays.copyOfRange(lines,1,lines.length));
+                map.put(lines[0],location);
+            }
+
+
+            return true;
+        } catch (
+                IOException e) {
+            return false;
         }
+    }
+
+    public HashMap<String, Location> getMap() {
+        return map;
     }
 }
