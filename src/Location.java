@@ -3,7 +3,15 @@ import java.util.Arrays;
 public class Location {
 private String name;
 
-private String[] locations;
+    public String getName() {
+        return name;
+    }
+
+    public String[] getLocations() {
+        return locations;
+    }
+
+    private String[] locations;
 
     public Location(String name, String[] locations) {
         this.name = name;

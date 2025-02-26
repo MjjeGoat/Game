@@ -9,12 +9,23 @@ public class CreateMap {
 
     private HashMap<String, Location> map = new HashMap<>();
 
+    private String start = "Alexova Loznice";
+    private String currentpos = start;
+
+    public void setCurrentpos(String currentpos) {
+        this.currentpos = currentpos;
+    }
+
+    public String getCurrentpos() {
+        return currentpos;
+    }
+
     public boolean loadMap() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("src/Mapa"));
             String line;
             while ((line = br.readLine()) != null) {
-                String[] lines = line.split(",");
+                String[] lines = line.split(", ");
                 Location location = new Location(lines[0], Arrays.copyOfRange(lines,1,lines.length));
                 map.put(lines[0],location);
             }
