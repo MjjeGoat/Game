@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Movement {
     CreateMap cm = new CreateMap();
-    Scanner sc =new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
     public boolean moving() {
         String where = " ";
