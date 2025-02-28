@@ -2,20 +2,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Movement {
+public class Movement extends Command {
     CreateMap cm = new CreateMap();
     Scanner sc = new Scanner(System.in);
 
-    public boolean moving() {
+    @Override
+    public String execute() {
         String where = " ";
         cm.loadMap();
-        while (!where.equals("konec")) {
+        System.out.println("Nachazite se v: " + cm.getCurrentpos());
+        while (!where.equals("konec cestovani")) {
             for (Location lokace : cm.getMap().values()) {
                 int a = 0;
                 if (lokace.getName().equals(cm.getCurrentpos())) {
                     System.out.println("Zadejte kam chcete jit: " + Arrays.toString(lokace.getLocations()));
                     where = sc.nextLine().trim();
-                    if (where.equals("konec")) {
+                    if (where.equals("konec cestovani")) {
                         break;
                     }
                     for (int i = 0; i < lokace.getLocations().length; i++) {
@@ -26,15 +28,18 @@ public class Movement {
                         }
                     }
                     if (a < 1) {
-                        System.out.println("Spatne zkus to znovu");
+                        return "Spatne zkus to znovu";
                     }
                     break;
                 }
             }
-            System.out.println("Nachazite se v :" + cm.getCurrentpos());
+            return "Nachazite se v :" + cm.getCurrentpos();
         }
-        return true;
+        return "Cestovani ukonceno";
     }
 
-
+    @Override
+    public boolean exit() {
+        return false;
+    }
 }

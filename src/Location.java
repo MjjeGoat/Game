@@ -16,8 +16,6 @@ private String name;
         this.name = name;
         this.locations = locations;
     }
-
-
     @Override
     public String toString() {
         return "Location{" +
