@@ -38,6 +38,10 @@ public class CreateMap {
         }
     }
 
+    public boolean loadItems() {
+        return true;
+    }
+
     public HashMap<String, Location> getMap() {
         return map;
     }
