@@ -11,7 +11,6 @@ public class Movement extends Command {
         String where = " ";
         cm.loadMap();
         System.out.println("Nachazite se v: " + cm.getCurrentpos());
-        while (!where.equals("konec cestovani")) {
             for (Location lokace : cm.getMap().values()) {
                 int a = 0;
                 if (lokace.getName().equals(cm.getCurrentpos())) {
@@ -25,17 +24,15 @@ public class Movement extends Command {
                             cm.setCurrentpos(lokace.getLocations()[i]);
                             i = lokace.getLocations().length;
                             a++;
+                            break;
                         }
                     }
                     if (a < 1) {
                         return "Spatne zkus to znovu";
                     }
-                    break;
                 }
-            }
-            return "Nachazite se v :" + cm.getCurrentpos();
         }
-        return "Cestovani ukonceno";
+        return "Nachazite se v :" + cm.getCurrentpos();
     }
 
     @Override

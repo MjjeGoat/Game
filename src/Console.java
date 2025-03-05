@@ -15,7 +15,7 @@ public class Console {
     }
 
     private void doCommand(){
-        System.out.println(">");
+        System.out.print(">");
         String prikaz = sc.next();
         if (prikazy.containsKey(prikaz)){
             System.out.println(prikazy.get(prikaz).execute());
