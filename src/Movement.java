@@ -11,26 +11,26 @@ public class Movement extends Command {
         String where = " ";
         cm.loadMap();
         System.out.println("Nachazite se v: " + cm.getCurrentpos());
-            for (Location lokace : cm.getMap().values()) {
-                int a = 0;
-                if (lokace.getName().equals(cm.getCurrentpos())) {
-                    System.out.println("Zadejte kam chcete jit: " + Arrays.toString(lokace.getLocations()));
-                    where = sc.nextLine().trim();
-                    if (where.equals("konec cestovani")) {
+        for (Location lokace : cm.getMap().values()) {
+            int a = 0;
+            if (lokace.getName().equals(cm.getCurrentpos())) {
+                System.out.println("Zadejte kam chcete jit: " + Arrays.toString(lokace.getLocations()));
+                where = sc.nextLine().trim();
+                if (where.equals("konec cestovani")) {
+                    break;
+                }
+                for (int i = 0; i < lokace.getLocations().length; i++) {
+                    if (where.equals(lokace.getLocations()[i])) {
+                        cm.setCurrentpos(lokace.getLocations()[i]);
+                        i = lokace.getLocations().length;
+                        a++;
                         break;
                     }
-                    for (int i = 0; i < lokace.getLocations().length; i++) {
-                        if (where.equals(lokace.getLocations()[i])){
-                            cm.setCurrentpos(lokace.getLocations()[i]);
-                            i = lokace.getLocations().length;
-                            a++;
-                            break;
-                        }
-                    }
-                    if (a < 1) {
-                        return "Spatne zkus to znovu";
-                    }
                 }
+                if (a < 1) {
+                    return "Spatne zkus to znovu";
+                }
+            }
         }
         return "Nachazite se v :" + cm.getCurrentpos();
     }
