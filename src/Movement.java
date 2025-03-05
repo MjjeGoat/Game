@@ -24,7 +24,7 @@ public class Movement extends Command {
                         cm.setCurrentpos(lokace.getLocations()[i]);
                         i = lokace.getLocations().length;
                         a++;
-                        break;
+                        return "Nachazite se v :" + cm.getCurrentpos();
                     }
                 }
                 if (a < 1) {
@@ -32,7 +32,7 @@ public class Movement extends Command {
                 }
             }
         }
-        return "Nachazite se v :" + cm.getCurrentpos();
+        return "cestovani dokonceno";
     }
 
     @Override
