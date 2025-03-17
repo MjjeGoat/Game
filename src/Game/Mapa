@@ -1,10 +1,10 @@
-Alexova Loznice, Alexova Kuchyne, Alexova Chodba
-Alexova Kuchyne, Alexova Loznice, Alexova Chodba
-Alexova Chodba, Alexova Loznice, Alexova Kuchyne, Vlakove Nadrazi
-Vlakove Nadrazi, Alexova Chodba, Les Rockford, Zahrada Jamese Hammera
-Zahrada Jamese Hammera, Vlakove Nadrazi, Obyvak Jamese Hammera, Loznice Jamese Hammera
-Loznice Jamese Hammera, Zahrada Jamese Hammera, Obyvak Jamese Hammera, Koupelna Jamese Hammera
-Obyvak Jamese Hammera, Zahrada Jamese Hammera, Loznice Jamese Hammera, Koupelna Jamese Hammera
-Koupelna Jamese Hammera, Obyvak Jamese Hammera, Loznice Jamese Hammera
-Les Rockford, Vlakove Nadrazi, Jeskyne
-Jeskyne, Les Rockford
+Alexova Loznice, Prasky na Alergii, Je rano musim si vzit prasky na alergii, Prasky na Alergii, Alexova Kuchyne, Alexova Chodba
+Alexova Kuchyne, Kava turek a modra camilka, Pred kazdym dnem si musim dat velice produktivni snidani, Kava turek a modra camilka, Alexova Loznice, Alexova Chodba
+Alexova Chodba, Klice od bytu, Musim najit klice od bytu, Klice od bytu, Alexova Loznice, Alexova Kuchyne, Vlakove Nadrazi
+Vlakove Nadrazi, Jizdenka do vlaku, Nemuzu riskovat dalsi pokutu od revizora, Jizdenka do vlaku, Alexova Chodba, Les Rockford, Zahrada Jamese Hammera,
+Zahrada Jamese Hammera, Item, Msg, null, Vlakove Nadrazi, Obyvak Jamese Hammera, Loznice Jamese Hammera
+Loznice Jamese Hammera, Item, Msg, null, Zahrada Jamese Hammera, Obyvak Jamese Hammera, Koupelna Jamese Hammera
+Obyvak Jamese Hammera, Item, Msg, null, Zahrada Jamese Hammera, Loznice Jamese Hammera, Koupelna Jamese Hammera
+Koupelna Jamese Hammera, Item, Msg, null, Obyvak Jamese Hammera, Loznice Jamese Hammera
+Les Rockford, Item, Msg, null, Vlakove Nadrazi, Jeskyne
+Jeskyne, Item, Msg, null, Les Rockford

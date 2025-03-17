@@ -1,14 +1,29 @@
+package Game;
+
 import java.util.ArrayList;
 
 public class Inventory {
-    ArrayList<String> inventory = new ArrayList<>();
+     private ArrayList<String> inventory = new ArrayList<>();
+     private ArrayList<String> usedItems = new ArrayList<>();
 
-    public boolean addItem(String item) {
-        return true;
+    public ArrayList<String> getUsedItems() {
+        return usedItems;
     }
 
-    public boolean removeItem(String item) {
-        return true;
+    public ArrayList<String> getInventory() {
+        return inventory;
+    }
+
+    public void addItem(String item) {
+        inventory.add(item);
+    }
+
+    public void addUsedItem(String item) {
+        usedItems.add(item);
+    }
+
+    public void removeItem(String item) {
+        inventory.remove(item);
     }
 
 

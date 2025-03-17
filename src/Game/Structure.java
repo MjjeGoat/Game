@@ -1,11 +1,26 @@
-package Game.Commands;
+package Game;
 
 public class Structure {
-    String[] items;
+    private String[] items;
+    private String location;
 
-    String name;
-    public Structure(String[] items, String name) {
+    private String name;
+
+    public Structure(String location, String name, String[] items) {
         this.items = items;
         this.name = name;
+        this.location = location;
+    }
+
+    public String[] getItems() {
+        return items;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getName() {
+        return name;
     }
 }
