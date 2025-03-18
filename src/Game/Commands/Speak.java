@@ -8,18 +8,18 @@ import java.util.Scanner;
 
 public class Speak extends Command {
 
-    PickedUp pickedUp = new PickedUp();
+    CreateMap cm = new CreateMap();
     Scanner sc = new Scanner(System.in);
 
     private void rewrite() {
         if (counter == 0) {
-            pickedUp.cm.setCurrentpos(pickedUp.cm.getStart());
+            cm.setCurrentpos(cm.getStart());
         }else {
             File file = new File("src/Game/poloha");
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String line = br.readLine();
-                pickedUp.cm.setCurrentpos(line);
+                cm.setCurrentpos(line);
                 br.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -27,34 +27,23 @@ public class Speak extends Command {
         }
     }
 
-    private void rewriteLocation() {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src/Game/poloha", false));
-            bw.write(pickedUp.cm.getCurrentpos());
-            bw.newLine();
-            bw.flush();
-            bw.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @Override
     public String execute() {
         rewrite();
-        pickedUp.cm.loadPersons();
+        cm.loadPersons();
         System.out.println("Zadejte jakou osobu chcete oslovit");
         String who = sc.next();
-        for (Person person:pickedUp.cm.getPersons().values()){
-            if (person.getLocation().equals(pickedUp.cm.getCurrentpos())){
+        for (Person person:cm.getPersons().values()){
+            if (person.getLocation().equals(cm.getCurrentpos())){
                 if (person.getName().equals(who)){
-                    System.out.println("k");
                     try {
                         sc.nextLine();
-                        BufferedReader bufferedReader = new BufferedReader(new FileReader("src/Game/" + person.getDialogue()));
+                        BufferedReader bufferedReader = new BufferedReader(new FileReader("src/Dialogues/" + person.getDialogue()));
                         String line;
                         while((line = bufferedReader.readLine()) != null){
                             System.out.println(line);
+                            System.out.println("Stisknete ENTER pro pokracovani");
                             sc.nextLine();
                         }
                     } catch (IOException e) {

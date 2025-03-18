@@ -39,17 +39,6 @@ public class PickedUp extends Command {
         }
     }
 
-    private void rewriteLocation() {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src/Game/poloha", false));
-            bw.write(cm.getCurrentpos());
-            bw.newLine();
-            bw.flush();
-            bw.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @Override
     public String execute() {
@@ -57,7 +46,6 @@ public class PickedUp extends Command {
         cm.loadItems();
         System.out.println("Zadejte jaky predmet chcete sebrat");
         String which = sc.nextLine();
-        System.out.println(cm.getCurrentpos());
         for (Structure structure : cm.getItems().values()) {
             if (structure.getLocation().equals(cm.getCurrentpos())) {
                 for (int i = 0; i < structure.getItems().length; i++) {
@@ -66,8 +54,6 @@ public class PickedUp extends Command {
                             return "Tento predmet jste uz sebrali";
                         } else {
                             inv.addItem(structure.getItems()[i]);
-                            howManyPickedUp++;
-                            rewriteLocation();
                             return "Sebrali jste : " + structure.getItems()[i];
                         }
                     }

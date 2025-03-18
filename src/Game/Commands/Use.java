@@ -47,17 +47,6 @@ public class Use extends Command {
         }
     }
 
-    private void rewriteLocation() {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src/Game/poloha", false));
-            bw.write(p.cm.getCurrentpos());
-            bw.newLine();
-            bw.flush();
-            bw.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     @Override
     public String execute() {
@@ -71,7 +60,6 @@ public class Use extends Command {
                     if (location.getWhatItem().equals(what)) {
                         p.inv.getInventory().remove(what);
                         p.inv.addUsedItem(what);
-                        rewriteLocation();
                         return "pouzili jste " + what;
                     }else {
                         return "Tady tento predmet opravdu nevyuziju";

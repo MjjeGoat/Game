@@ -1,0 +1,7 @@
+prikaz jdi - Slouzi pro cestovani po mape, pokud jste pouzili predmet, ktery vam pomuze odejit z mistnosti.
+prikaz pouzij - Pouzije predmet, jestli je predmet pouzitelny v teto lokaci a vas inventar ho obsahuje.
+prikaz seber - Sebere predmet a prida ho do inventare.
+prikaz prohledej - Vypise jake objekty muzete prohledat a s cim muzete interagovat v dane mistnosti.
+prikaz interakce - Interaguje s danym objektem/osobou.
+prikaz inventar - Umozni vam zobrazit jake predmety obsahuje vas inventar.
+prikaz exit - Ukonci hru.

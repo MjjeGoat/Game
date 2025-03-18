@@ -27,7 +27,7 @@ public class Console {
         prikazy.put("seber", p);
         prikazy.put("pouzij", u);
         prikazy.put("mluv",sp);
-
+        prikazy.put("help",new Help());
     }
 
     private void doCommand(){
@@ -36,13 +36,17 @@ public class Console {
         if (prikazy.containsKey(prikaz)){
             System.out.println(prikazy.get(prikaz).execute());
             exit = prikazy.get(prikaz).exit();
-            u.counter++;
-            op.counter++;
-            m.counter++;
-            s.counter++;
-            p.counter++;
+            if (prikaz.equals("jdi")){
+                u.counter++;
+                op.counter++;
+                m.counter++;
+                s.counter++;
+                p.counter++;
+                sp.counter++;
+            }
+
         }else {
-            System.out.println("neplati");
+            System.out.println("Pokud si nejste jisty s prikazy, zadejte prikaz help");
         }
     }
 

@@ -63,6 +63,7 @@ public class Movement extends Command {
     public String execute() {
         String where = " ";
         rewrite();
+        writeLocation();
         cm.loadMap();
         System.out.println("Nachazite se v: " + cm.getCurrentpos());
         for (Location lokace : cm.getMap().values()) {

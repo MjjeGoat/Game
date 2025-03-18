@@ -24,17 +24,6 @@ public class Search extends Command {
         this.p = p;
     }
 
-    private void writeLocation() {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src/Game/poloha", false));
-            bw.write(p.cm.getCurrentpos());
-            bw.newLine();
-            bw.flush();
-            bw.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     private void rewrite() {
         if (counter == 0) {
@@ -61,12 +50,10 @@ public class Search extends Command {
         boolean foundS = false;
         boolean foundP = false;
         boolean correct = false;
-        System.out.println(p.cm.getCurrentpos());
         for (Person person : p.cm.getPersons().values()) {
             if (person.getLocation().equals(p.cm.getCurrentpos())) {
                 System.out.println("V teto lokaci se nachazi osoba: " + person.getName());
                 foundP = true;
-                writeLocation();
             }
         }
         if (!foundP) {
@@ -77,7 +64,6 @@ public class Search extends Command {
             if (structure.getLocation().equals(p.cm.getCurrentpos())) {
                 System.out.println("V teto lokaci se nachazi objekt: " + structure.getName());
                 foundS = true;
-                writeLocation();
             }
         }
         if (!foundS) {
@@ -101,8 +87,6 @@ public class Search extends Command {
                     System.out.println(structure.getName() + " je prázdný.");
                 } else {
                     System.out.println(structure.getName() + " obsahuje " + dostupnePredmety);
-                    writeLocation();
-                    howManySearch++;
                 }
 
                 correct = true;
