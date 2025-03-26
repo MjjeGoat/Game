@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 public class Location {
 private String name;
+private String hint;
 
     public String getName() {
         return name;
@@ -37,17 +38,28 @@ private String name;
         return whatItem;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
     private boolean lock = false;
     private String msg;
     private String openDoor;
+    private int index;
 
 
-    public Location(String name, String openDoor, String msg,String whatItem, String[] locations) {
+    public Location(int index,String name, String openDoor, String msg,String whatItem, String[] locations,String hint) {
         this.locations = locations;
         this.msg = msg;
         this.name = name;
         this.openDoor = openDoor;
         this.whatItem = whatItem;
+        this.index = index;
+        this.hint = hint;
     }
 
     public Location() {

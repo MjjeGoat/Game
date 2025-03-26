@@ -1,1 +1,7 @@
-Telefon, telefonRozhovor, Alexova Chodba
+Budik, src/Dialogues/Budik, Alexova Loznice
+Televize, src/Dialogues/TVZpravy, Alexova Kuchyne
+Drez, src/Dialogues/Drez, Alexova Kuchyne
+Kolemjdouci, src/Dialogues/PaniAmyRozhovor, Vlakove Nadrazi
+Dealer, src/Dialogues/Dealer, Vlakove Nadrazi
+Zahradnik, src/Dialogues/ZahradnikRozhovor, Zahrada Jamese Hammera
+Zvonek, src/Dialogues/Zvonek, Zahrada Jamese Hammera

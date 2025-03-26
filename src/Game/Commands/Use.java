@@ -35,7 +35,7 @@ public class Use extends Command {
         if (counter == 0) {
             p.cm.setCurrentpos(p.cm.getStart());
         }else {
-            File file = new File("src/Game/poloha");
+            File file = new File("src/Game/position");
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String line = br.readLine();
@@ -53,6 +53,7 @@ public class Use extends Command {
         rewrite();
         p.cm.loadMap();
         System.out.println("Zadejte jaky predmet chcete pouzit");
+        System.out.println("Vas inventar: " + p.inv.getInventory());
         what = sc.nextLine();
         if (p.inv.getInventory().contains(what)) {
             for (Location location : p.cm.getMap().values()) {

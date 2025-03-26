@@ -13,21 +13,12 @@ public class PickedUp extends Command {
     Inventory inv = new Inventory();
     Scanner sc = new Scanner(System.in);
     CreateMap cm = new CreateMap();
-    private int howManyPickedUp = 0;
-
-    public int getHowManyPickedUp() {
-        return howManyPickedUp;
-    }
-
-    public void setHowManyPickedUp(int howManyPickedUp) {
-        this.howManyPickedUp = howManyPickedUp;
-    }
 
     private void rewrite() {
         if (counter == 0) {
             cm.setCurrentpos(cm.getStart());
         } else {
-            File file = new File("src/Game/poloha");
+            File file = new File("src/Game/position");
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String line = br.readLine();
@@ -46,19 +37,23 @@ public class PickedUp extends Command {
         cm.loadItems();
         System.out.println("Zadejte jaky predmet chcete sebrat");
         String which = sc.nextLine();
-        for (Structure structure : cm.getItems().values()) {
-            if (structure.getLocation().equals(cm.getCurrentpos())) {
-                for (int i = 0; i < structure.getItems().length; i++) {
-                    if (which.equals(structure.getItems()[i])) {
-                        if (inv.getInventory().contains(structure.getItems()[i])) {
-                            return "Tento predmet jste uz sebrali";
-                        } else {
-                            inv.addItem(structure.getItems()[i]);
-                            return "Sebrali jste : " + structure.getItems()[i];
+        if (inv.getInventory().size()<5){
+            for (Structure structure : cm.getItems().values()) {
+                if (structure.getLocation().equals(cm.getCurrentpos())) {
+                    for (int i = 0; i < structure.getItems().length; i++) {
+                        if (which.equals(structure.getItems()[i])) {
+                            if (inv.getInventory().contains(structure.getItems()[i])||inv.getUsedItems().contains(structure.getItems()[i])){
+                                return "Tento predmet jste uz sebrali";
+                            } else {
+                                inv.addItem(structure.getItems()[i]);
+                                return "Sebrali jste : " + structure.getItems()[i];
+                            }
                         }
                     }
                 }
             }
+        }else {
+            return "Uz toho vice nepoberu";
         }
         return " Tento predmet se zde nenachazi";
     }

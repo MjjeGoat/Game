@@ -29,7 +29,7 @@ public class Search extends Command {
         if (counter == 0) {
             p.cm.setCurrentpos(p.cm.getStart());
         } else {
-            File file = new File("src/Game/poloha");
+            File file = new File("src/Game/position");
             try {
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String line = br.readLine();
@@ -52,7 +52,7 @@ public class Search extends Command {
         boolean correct = false;
         for (Person person : p.cm.getPersons().values()) {
             if (person.getLocation().equals(p.cm.getCurrentpos())) {
-                System.out.println("V teto lokaci se nachazi osoba: " + person.getName());
+                System.out.println("V teto lokaci muzu interagovat s: " + person.getName());
                 foundP = true;
             }
         }
@@ -70,7 +70,7 @@ public class Search extends Command {
             return "V teto lokaci se nenachazi zadny objekt na prohledani";
         }
 
-        System.out.println("Zadejte co chcete prohledat");
+        System.out.println("Zadejte jaky objekt chcete prohledat");
         String search = scanner.nextLine().trim();
 
         for (Structure structure : p.cm.getItems().values()) {
@@ -78,7 +78,7 @@ public class Search extends Command {
                 ArrayList<String> dostupnePredmety = new ArrayList<>();
 
                 for (String item : structure.getItems()) {
-                    if (!p.inv.getInventory().contains(item)) {
+                    if (!p.inv.getInventory().contains(item)&&!p.inv.getUsedItems().contains(item)) {
                         dostupnePredmety.add(item);
                     }
                 }

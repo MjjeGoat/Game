@@ -3,7 +3,7 @@ package Game;
 import java.util.ArrayList;
 
 public class Inventory {
-     private ArrayList<String> inventory = new ArrayList<>();
+     private ArrayList<String> inventory = new ArrayList<>(5);
      private ArrayList<String> usedItems = new ArrayList<>();
 
     public ArrayList<String> getUsedItems() {

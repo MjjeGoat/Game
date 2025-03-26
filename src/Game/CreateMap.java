@@ -33,13 +33,13 @@ public class CreateMap {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(", ");
-                Location location = new Location(lines[0],lines[1],lines[2], lines[3],Arrays.copyOfRange(lines,4,lines.length));
-                map.put(lines[0],location);
+                Location location = new Location(Integer.parseInt(lines[0]), lines[1], lines[2], lines[3], lines[4], Arrays.copyOfRange(lines, 6, lines.length), lines[5]);
+                map.put(lines[1], location);
             }
             return true;
         } catch (
                 IOException e) {
-             return false;
+            return false;
         }
     }
 
@@ -49,8 +49,8 @@ public class CreateMap {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(", ");
-                Person person = new Person(lines[0],lines[1],lines[2]);
-                persons.put(lines[0],person);
+                Person person = new Person(lines[0], lines[1], lines[2]);
+                persons.put(lines[0], person);
             }
             return true;
         } catch (
@@ -66,8 +66,8 @@ public class CreateMap {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(", ");
-                Structure structure = new Structure(lines[0],lines[1],Arrays.copyOfRange(lines,2,lines.length));
-                items.put(lines[1],structure);
+                Structure structure = new Structure(lines[0], lines[1], Arrays.copyOfRange(lines, 2, lines.length));
+                items.put(lines[1], structure);
             }
             return true;
         } catch (

@@ -1,10 +1,12 @@
-Alexova Loznice, Prasky na Alergii, Je rano musim si vzit prasky na alergii, Prasky na Alergii, Alexova Kuchyne, Alexova Chodba
-Alexova Kuchyne, Kava turek a modra camilka, Pred kazdym dnem si musim dat velice produktivni snidani, Kava turek a modra camilka, Alexova Loznice, Alexova Chodba
-Alexova Chodba, Klice od bytu, Musim najit klice od bytu, Klice od bytu, Alexova Loznice, Alexova Kuchyne, Vlakove Nadrazi
-Vlakove Nadrazi, Jizdenka do vlaku, Nemuzu riskovat dalsi pokutu od revizora, Jizdenka do vlaku, Alexova Chodba, Les Rockford, Zahrada Jamese Hammera,
-Zahrada Jamese Hammera, Item, Msg, null, Vlakove Nadrazi, Obyvak Jamese Hammera, Loznice Jamese Hammera
-Loznice Jamese Hammera, Item, Msg, null, Zahrada Jamese Hammera, Obyvak Jamese Hammera, Koupelna Jamese Hammera
-Obyvak Jamese Hammera, Item, Msg, null, Zahrada Jamese Hammera, Loznice Jamese Hammera, Koupelna Jamese Hammera
-Koupelna Jamese Hammera, Item, Msg, null, Obyvak Jamese Hammera, Loznice Jamese Hammera
-Les Rockford, Item, Msg, null, Vlakove Nadrazi, Jeskyne
-Jeskyne, Item, Msg, null, Les Rockford
+1, Alexova Loznice, Prasky na alergii, Je rano musim si vzit prasky na alergii, Prasky na alergii, src/Hints/ALHint, Alexova Kuchyne, Alexova Chodba
+2, Alexova Kuchyne, null, null, null, src/Hints/AKHint, Alexova Loznice, Alexova Chodba
+2, Alexova Chodba, Klice od bytu, Musim najit klice od bytu, Klice od bytu, src/Hints/ACHHINT, Alexova Loznice, Alexova Kuchyne, Vlakove Nadrazi
+3, Vlakove Nadrazi, Jizdenka do vlaku, Nemuzu riskovat dalsi pokutu od revizora, Jizdenka do vlaku, src/Hints/VNHint, Alexova Chodba, Les Rockford, Zahrada Jamese Hammera
+4, Zahrada Jamese Hammera, Kava turek a modra camilka, Ten zahradnik me jentak nepusti, Kava turek a modra camilka, src/Hints/ZJHHint, Vlakove Nadrazi, Obyvak Jamese Hammera, Loznice Jamese Hammera
+5, Loznice Jamese Hammera, Kolicek, V ty chodbe to extrem pachne musim najit neco cim si zacpu nos, Kolicek, src/Hints/LJHHint, Zahrada Jamese Hammera, Obyvak Jamese Hammera, Koupelna Jamese Hammera
+5, Obyvak Jamese Hammera, Bouraci Kladivo, Vypada to ze tyto dvere jsou zamcene musim najit neco cim je vyrazit, Bouraci Kladivo, src/Hints/OJHHint, Zahrada Jamese Hammera, Loznice Jamese Hammera, Koupelna Jamese Hammera
+6, Koupelna Jamese Hammera, Taser, V sachte se nachazi krysa musim najit nejakou zbran, Taser, src/Hints/KJHHint, Obyvak Jamese Hammera, Loznice Jamese Hammera, Sachta v Koupelne
+7, Sachta v Koupelne, Item, Msg, Item, src/Hints/SvKHint, Koupelna Jamese Hammera
+8, Les Rockford, Vonavy Burger, U jezirka pije medved musim ho odehnat nejakym vonavym jidlem, Vonavy Burger, src/Hints/LRHint, Vlakove Nadrazi, Jezirko Alagard
+9, Jezirko Alagard, Kod od Jeskyne, Neco je dole. Ale jak se tam mam dostat, Kod od Jeskyne, src/Hints/JAHint, Les Rockford, Jeskyne
+10, Jeskyne, Item, Msg, null, null, Jezirko Alagard

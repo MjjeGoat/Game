@@ -5,3 +5,5 @@ prikaz prohledej - Vypise jake objekty muzete prohledat a s cim muzete interagov
 prikaz interakce - Interaguje s danym objektem/osobou.
 prikaz inventar - Umozni vam zobrazit jake predmety obsahuje vas inventar.
 prikaz exit - Ukonci hru.
+prikaz napoveda - Poradi vam s pokrokem ve hre.
+prikaz vyhod - Odstrani vam predmet z vaseho inventare. Pokud ho budete nekde jeste potrebovat, vrati se tam, kde jste ho sebrali.

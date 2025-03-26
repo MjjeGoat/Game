@@ -1,12 +1,15 @@
 package Game;
 
+import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
+
 import Game.Commands.*;
 
 public class Console {
 
-
+    Napoveda nap = new Napoveda();
+    Story story = new Story();
     PickedUp p = new PickedUp();
     Use u = new Use(p);
     Movement m = new Movement(u);
@@ -16,9 +19,10 @@ public class Console {
     private Scanner sc = new Scanner(System.in);
     private boolean exit = false;
     private HashMap<String, Command> prikazy;
+    String prikaz;
 
 
-    private void inicializace(){
+    private void inicializace() {
         prikazy = new HashMap<>();
         prikazy.put("jdi", m);
         prikazy.put("inventar", op);
@@ -26,36 +30,56 @@ public class Console {
         prikazy.put("exit", new Exit());
         prikazy.put("seber", p);
         prikazy.put("pouzij", u);
-        prikazy.put("mluv",sp);
-        prikazy.put("help",new Help());
+        prikazy.put("interakce", sp);
+        prikazy.put("help", new Help());
+        prikazy.put("napoveda",nap);
+        prikazy.put("vyhod",new Delete(p));
     }
 
-    private void doCommand(){
+    private void doCommand() {
         System.out.print(">");
-        String prikaz = sc.next();
-        if (prikazy.containsKey(prikaz)){
+        prikaz = sc.next();
+        if (prikazy.containsKey(prikaz)) {
             System.out.println(prikazy.get(prikaz).execute());
             exit = prikazy.get(prikaz).exit();
-            if (prikaz.equals("jdi")){
+            if (prikaz.equals("jdi")) {
                 u.counter++;
                 op.counter++;
                 m.counter++;
                 s.counter++;
                 p.counter++;
                 sp.counter++;
+                nap.counter++;
             }
-
-        }else {
+        } else {
             System.out.println("Pokud si nejste jisty s prikazy, zadejte prikaz help");
         }
     }
 
+    private void writeStart(){
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/Game/position"));
+            bufferedWriter.write(m.cm.getStart());
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    public void start(){
+
+    public void start() {
+        writeStart();
+        story.startStory();
         inicializace();
         do {
-            doCommand();
-
-        }while(!exit);
+         doCommand();
+            boolean end =  story.controlEndStory();
+            if (end) {
+                story.endStory();
+                exit = true;
+            }
+        } while (!exit);
     }
 }
