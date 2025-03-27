@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 import Game.Commands.*;
 
+
+/**
+ * Represents the main console for handling user commands in the game.
+ */
 public class Console {
 
     Napoveda nap = new Napoveda();
@@ -21,42 +25,41 @@ public class Console {
     private HashMap<String, Command> prikazy;
     String prikaz;
 
-
+    /**
+     * Initializes the command map and assigns available commands to their respective objects.
+     */
     private void inicializace() {
         prikazy = new HashMap<>();
-        prikazy.put("jdi", m);
-        prikazy.put("inventar", op);
-        prikazy.put("prohledej", s);
-        prikazy.put("exit", new Exit());
-        prikazy.put("seber", p);
-        prikazy.put("pouzij", u);
-        prikazy.put("interakce", sp);
-        prikazy.put("help", new Help());
-        prikazy.put("napoveda",nap);
-        prikazy.put("vyhod",new Delete(p));
+        prikazy.put("jdi", m); // Move command
+        prikazy.put("inventar", op); // Open inventory command
+        prikazy.put("prohledej", s); // Search command
+        prikazy.put("exit", new Exit()); // Exit command
+        prikazy.put("seber", p); // Pick up item command
+        prikazy.put("pouzij", u); // Use item command
+        prikazy.put("interakce", sp); // Interact command
+        prikazy.put("help", new Help()); // Help command
+        prikazy.put("napoveda", nap); // Hint command
+        prikazy.put("vyhod", new Delete(p)); // Drop item command
     }
 
+    /**
+     * Processes user input and executes the corresponding command.
+     */
     private void doCommand() {
         System.out.print(">");
         prikaz = sc.next();
         if (prikazy.containsKey(prikaz)) {
             System.out.println(prikazy.get(prikaz).execute());
             exit = prikazy.get(prikaz).exit();
-            if (prikaz.equals("jdi")) {
-                u.counter++;
-                op.counter++;
-                m.counter++;
-                s.counter++;
-                p.counter++;
-                sp.counter++;
-                nap.counter++;
-            }
         } else {
             System.out.println("Pokud si nejste jisty s prikazy, zadejte prikaz help");
         }
     }
 
-    private void writeStart(){
+    /**
+     * Writes the starting position of the player to a file at the start of the game.
+     */
+    private void writeStart() {
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/Game/position"));
             bufferedWriter.write(m.cm.getStart());
@@ -68,14 +71,16 @@ public class Console {
         }
     }
 
-
+    /**
+     * Starts the game by initializing commands, handling user input, and controlling the game loop.
+     */
     public void start() {
         writeStart();
         story.startStory();
         inicializace();
         do {
-         doCommand();
-            boolean end =  story.controlEndStory();
+            doCommand();
+            boolean end = story.controlEndStory();
             if (end) {
                 story.endStory();
                 exit = true;
@@ -83,3 +88,4 @@ public class Console {
         } while (!exit);
     }
 }
+
