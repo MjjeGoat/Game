@@ -61,7 +61,7 @@ public class Console {
      */
     private void writeStart() {
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/Game/position"));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/Res/position"));
             bufferedWriter.write(m.cm.getStart());
             bufferedWriter.newLine();
             bufferedWriter.flush();

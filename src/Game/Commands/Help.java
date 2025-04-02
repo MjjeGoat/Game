@@ -25,7 +25,7 @@ public class Help extends Command {
     @Override
     public String execute() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("src/Game/help"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("src/Res/help"));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 System.out.println(line);

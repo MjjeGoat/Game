@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class PickedUp extends Command {
 
-    Inventory inv = new Inventory();
+    public Inventory inv = new Inventory();
     Scanner sc = new Scanner(System.in);
     CreateMap cm = new CreateMap();
 
@@ -24,7 +24,7 @@ public class PickedUp extends Command {
      * Loads the last saved position of the player from a file.
      */
     private void rewrite() {
-        File file = new File("src/Game/position");
+        File file = new File("src/Res/position");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
@@ -46,7 +46,6 @@ public class PickedUp extends Command {
         cm.loadItems();
         System.out.println("Zadejte jaky predmet chcete sebrat");
         String which = sc.nextLine();
-
         if (inv.getInventory().size() < 5) {
             for (Structure structure : cm.getItems().values()) {
                 if (structure.getLocation().equals(cm.getCurrentpos())) {

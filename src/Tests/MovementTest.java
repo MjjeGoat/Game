@@ -1,5 +1,7 @@
-package Game.Commands;
+package Tests;
 
+import Game.Commands.Movement;
+import Game.Commands.Use;
 import Game.Location;
 import org.junit.jupiter.api.Test;
 

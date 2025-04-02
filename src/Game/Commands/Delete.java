@@ -28,15 +28,15 @@ public class Delete extends Command {
      */
     @Override
     public String execute() {
-        System.out.println("Enter the item you want to discard:");
-        System.out.println("Your inventory: " + pickedUp.inv.getInventory());
+        System.out.println("Zadejte jaky predmet chcete vyhodit:");
+        System.out.println("Tvuj inventar: " + pickedUp.inv.getInventory());
         String which = sc.nextLine();
 
         if (pickedUp.inv.getInventory().contains(which)) {
             pickedUp.inv.getInventory().remove(which);
-            return "You have removed the item: " + which;
+            return "Vyhodili jste predmet: " + which;
         } else {
-            return "This item is not in your inventory.";
+            return "Tento predmet nemate v inventari.";
         }
     }
 

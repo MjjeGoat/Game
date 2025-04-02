@@ -19,6 +19,11 @@ public class Movement extends Command {
     Scanner sc = new Scanner(System.in);
     PickedUp pickedUp = new PickedUp();
     Use use = new Use(pickedUp);
+    private String where;
+
+    public void setWhere(String where) {
+        this.where = where;
+    }
 
     /**
      * Checks if the door to a given location is locked and whether the required item has been used to unlock it.
@@ -46,7 +51,7 @@ public class Movement extends Command {
      */
     private void rewrite() {
             try {
-                File file = new File("src/Game/position");
+                File file = new File("src/Res/position");
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String line = br.readLine();
                 cm.setCurrentpos(line);
@@ -61,7 +66,7 @@ public class Movement extends Command {
      */
     private void writeLocation() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src/Game/position", false));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("src/Res/position", false));
             bw.write(cm.getCurrentpos());
             bw.newLine();
             bw.flush();
@@ -71,24 +76,11 @@ public class Movement extends Command {
         }
     }
 
-    /**
-     * Executes the movement command, allowing the player to move to a new location if possible.
-     * @return a message indicating the player's new location or an error message.
-     */
-    @Override
-    public String execute() {
-        String where = " ";
+    public String movement(String where) {
         rewrite();
-        writeLocation();
-        cm.loadMap();
-        System.out.println("Nachazite se v: " + cm.getCurrentpos());
-
         for (Location lokace : cm.getMap().values()) {
             int a = 0;
             if (lokace.getName().equals(cm.getCurrentpos())) {
-                System.out.println("Zadejte kam chcete jit: " + Arrays.toString(lokace.getLocations()));
-                where = sc.nextLine().trim();
-
                 for (int i = 0; i < lokace.getLocations().length; i++) {
                     if (where.equals(lokace.getLocations()[i])) {
                         for (Location loc : cm.getMap().values()) {
@@ -113,7 +105,6 @@ public class Movement extends Command {
                         }
                     }
                 }
-
                 if (a < 1) {
                     writeLocation();
                     return "Spatne zkus to znovu";
@@ -121,6 +112,25 @@ public class Movement extends Command {
             }
         }
         return "";
+    }
+
+    /**
+     * Executes the movement command, allowing the player to move to a new location if possible.
+     * @return a message indicating the player's new location or an error message.
+     */
+    @Override
+    public String execute() {
+        rewrite();
+        writeLocation();
+        cm.loadMap();
+        String output = " ";
+        for (Location lokace : cm.getMap().values()) {
+            if (lokace.getName().equals(cm.getCurrentpos())) {
+                output = output + Arrays.toString(lokace.getLocations());
+            }
+        }
+        System.out.println("Zadejte kam chcete jit: " + output);
+        return movement(sc.nextLine());
     }
 
     /**

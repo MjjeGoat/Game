@@ -25,7 +25,7 @@ public class Search extends Command {
      * Loads the last saved position of the player from a file.
      */
     private void rewrite() {
-        File file = new File("src/Game/position");
+        File file = new File("src/Res/position");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();

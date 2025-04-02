@@ -1,11 +1,11 @@
 Budik, src/Dialogues/Budik, Alexova Loznice
 Televize, src/Dialogues/TVZpravy, Alexova Kuchyne
 Drez, src/Dialogues/Drez, Alexova Kuchyne
-Kolemjdouci, src/Dialogues/PaniAmyRozhovor, Vlakove Nadrazi
 Dealer, src/Dialogues/Dealer, Vlakove Nadrazi
+Kolemjdouci, src/Dialogues/PaniAmyRozhovor, Vlakove Nadrazi
 Zahradnik, src/Dialogues/ZahradnikRozhovor, Zahrada Jamese Hammera
 Zvonek, src/Dialogues/Zvonek, Zahrada Jamese Hammera
-Sprcha, , Koupelna Jamese Hammera
-Krizovka, , Obyvak Jamese Hammera
-Televize, , Obyvak Jamese Hammera
-Amy, , Loznice Jamese Hammera
+Sprcha, src/Dialogues/Sprcha, Koupelna Jamese Hammera
+Krizovka, src/Dialogues/Krizovka, Obyvak Jamese Hammera
+Televize, src/Dialogues/TelevizeOJH, Obyvak Jamese Hammera
+Adeline, src/Dialogues/Adeline, Loznice Jamese Hammera

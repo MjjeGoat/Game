@@ -1,5 +1,8 @@
-package Game;
+package Tests;
 
+import Game.CreateMap;
+import Game.Location;
+import Game.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,23 +26,21 @@ class CreateMapTest {
 
     @Test
     void testLoadMapSuccess() throws IOException {
-        File tempFile = new File("src/Game/Mapa");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-        writer.write("1, Location1, Type1, Desc1, extra1, extra2, extra3\n");
-        writer.write("2, Location2, Type2, Desc2, extra4, extra5, extra6\n");
-        writer.close();
-
         boolean result = createMap.loadMap();
-
         assertTrue(result);
-
         Map<String, Location> map = createMap.getMap();
-        assertEquals(2, map.size());
-        assertTrue(map.containsKey("Location1"));
-        assertTrue(map.containsKey("Location2"));
-
-        tempFile.delete();
+        assertEquals(12, map.size());
+        assertTrue(map.containsKey("Alexova Loznice"));
+        assertTrue(map.containsKey("Alexova Kuchyne"));
+        assertTrue(map.containsKey("Alexova Chodba"));
+        assertTrue(map.containsKey("Vlakove Nadrazi"));
+        assertTrue(map.containsKey("Zahrada Jamese Hammera"));
+        assertTrue(map.containsKey("Alexova Kuchyne"));
+        assertTrue(map.containsKey("Alexova Kuchyne"));
+        assertTrue(map.containsKey("Alexova Kuchyne"));
+        assertTrue(map.containsKey("Alexova Kuchyne"));
+        assertTrue(map.containsKey("Alexova Kuchyne"));
+        assertTrue(map.containsKey("Alexova Kuchyne"));
     }
 
     @Test
@@ -62,22 +63,19 @@ class CreateMapTest {
 
     @Test
     void testLoadPersonsSuccess() throws IOException {
-        File tempFile = new File("src/Game/Persons");
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-        writer.write("John Doe, jdoe@example.com, 123-456-7890\n");
-        writer.write("Jane Smith, jsmith@example.com, 987-654-3210\n");
-        writer.close();
 
         boolean result = createMap.loadPersons();
 
         assertTrue(result);
 
         Map<String, Person> persons = createMap.getPersons();
-        assertEquals(2, persons.size());
-        assertTrue(persons.containsKey("John Doe"));
-        assertTrue(persons.containsKey("Jane Smith"));
-
-        tempFile.delete();
+        assertEquals(7, persons.size());
+        assertTrue(persons.containsKey("Televize"));
+        assertTrue(persons.containsKey("Budik"));
+        assertTrue(persons.containsKey("Drez"));
+        assertTrue(persons.containsKey("Kolemjdouci"));
+        assertTrue(persons.containsKey("Dealer"));
+        assertTrue(persons.containsKey("Zahradnik"));
+        assertTrue(persons.containsKey("Zvonek"));
     }
 }

@@ -20,13 +20,13 @@ public class Story {
 
     Scanner sc = new Scanner(System.in);
 
-    CreateMap cm = new CreateMap();
+    public CreateMap cm = new CreateMap();
 
     /**
      * Updates the current position of the player from the saved file.
      */
     private void rewrite() {
-        File file = new File("src/Game/position");
+        File file = new File("src/Res/position");
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             String line = br.readLine();
@@ -87,6 +87,8 @@ public class Story {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        sc.close();
     }
+
 }
 

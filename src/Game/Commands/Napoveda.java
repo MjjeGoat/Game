@@ -26,7 +26,7 @@ public class Napoveda extends Command {
      */
     private void rewrite(){
             try {
-                File file = new File("src/Game/position");
+                File file = new File("src/Res/position");
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String line = br.readLine();
                 cm.setCurrentpos(line);

@@ -52,7 +52,7 @@ public class CreateMap {
      */
     public boolean loadMap() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/Game/Mapa"));
+            BufferedReader br = new BufferedReader(new FileReader("src/Res/Mapa"));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(", ");
@@ -79,7 +79,7 @@ public class CreateMap {
      */
     public boolean loadPersons() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/Game/Persons"));
+            BufferedReader br = new BufferedReader(new FileReader("src/Res/Persons"));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(", ");
@@ -102,7 +102,7 @@ public class CreateMap {
      */
     public boolean loadItems() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/Game/Struktury"));
+            BufferedReader br = new BufferedReader(new FileReader("src/Res/Struktury"));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split(", ");
