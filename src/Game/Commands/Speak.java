@@ -43,12 +43,9 @@ public class Speak extends Command {
         System.out.println("Zadejte s kym/cim chcete interagovat");
         String who = sc.next();
         boolean foundL = false;
-
         for (Person person : cm.getPersons().values()) {
             if (person.getLocation().equals(cm.getCurrentpos())) {
-                System.out.println(1);
                 if (person.getName().equals(who)) {
-                    System.out.println(2);
                     foundL = true;
                     try {
                         sc.nextLine();
@@ -64,12 +61,11 @@ public class Speak extends Command {
                         throw new RuntimeException(e);
                     }
                 }
-                if (!foundL) {
-                    return "Tato osoba/vec se zde nenachazi";
-                }
             }
         }
-
+        if (!foundL) {
+            return "Tato osoba/vec se zde nenachazi";
+        }
         if (!foundL) {
             return "V teto lokaci se nenachazi zadna osoba/vec na interakci";
         }
